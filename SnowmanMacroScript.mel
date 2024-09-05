@@ -1,0 +1,53 @@
+//Base of snowman
+polySphere -radius 3 -subdivisionsX 20 -subdivisionsY 20 -axis 0 3 0 -createUVs 2 -constructionHistory 1;
+move -relative 0 3 0 ;
+
+//Middle of snowman
+polySphere -radius 2 -subdivisionsX 20 -subdivisionsY 20 -axis 0 3 0 -createUVs 2 -constructionHistory 1;
+move -relative 0 8 0 ;
+
+//Head of snowman
+polySphere -radius 1.25 -subdivisionsX 20 -subdivisionsY 20 -axis 0 3 0 -createUVs 2 -constructionHistory 1;
+move -relative 0 11.25 0;
+
+//snowman's nose
+polyCone -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -relative 0 11.25 1.6;
+rotate -relative -objectSpace -forceOrderXYZ 90 0 0;
+scale -relative 0.075 0.35 0.075 ;
+
+//snowman's eyes
+polySphere -radius 1 -subdivisionsX 15 -subdivisionsY 15 -axis 0 3 0 -createUVs 2 -constructionHistory 1;
+move -relative 0.325 11.8 1.1;
+scale -relative 0.1 0.1 0.03;
+rotate -relative -objectSpace -forceOrderXYZ -25 13 0;
+//I could just do the same code over again, but wanted to learn something new and easier.  Besides duplicate could come in handy
+//also going to note that this made less code overall
+duplicate -rr; 
+move -relative -0.65;
+rotate -relative 0 -26 0;
+
+//snowman's buttons
+polyCylinder -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+rotate -relative 90 0 0;
+scale -relative 0.15 0.01 0.15;
+move -relative 0 8 2;
+
+polyCylinder -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+rotate -relative 60 0 0;
+scale -relative 0.15 0.01 0.15;
+move -relative 0 9 1.75;
+
+polyCylinder -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+rotate -relative 120 0 0;
+scale -relative 0.15 0.01 0.15;
+move -relative 0 7 1.75;
+
+//Snowman's arms
+polyCylinder -radius 0.1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+rotate -relative 0 0 60;
+move -relative -2.58 9.5 0; 
+
+polyCylinder -radius 0.1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+rotate -relative 0 0 120; 
+move -relative 2.58 9.5 0; 

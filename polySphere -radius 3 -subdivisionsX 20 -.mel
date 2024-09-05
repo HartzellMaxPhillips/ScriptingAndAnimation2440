@@ -1,4 +1,0 @@
-polySphere -radius 3 -subdivisionsX 20 -subdivisionsY 20 -axis 0 3 0 -createUVs 2 -constructionHistory 1;
-move -r 0 3 0 ;
-
-polySphere -radius 2 -subdivisionsX 20 -subdivisionsY 20 -axis 0 3 0 -createUVs 2 -constructionHistory 1;
