@@ -1,0 +1,45 @@
+//Tiefighter
+//I heard you didn't like star wars :p
+//Main body
+polySphere -radius 3 -subdivisionsX 20 -subdivisionsY 20 -axis 0 3 0 -createUVs 2 -constructionHistory 1;
+move -relative 0 3 0 ;
+//Arms
+polyCylinder -radius 0.5 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -worldSpace -4 3 0 ;
+rotate -relative 0 0 90;
+
+polyCylinder -radius 0.5 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -worldSpace 4 3 0 ;
+rotate -relative 0 0 90;
+
+//Wings/sides
+//Side note: I've realized what world space is and just seems to make some things easier haha
+polyCylinder -radius 6 -height 0.2 -subdivisionsX 6 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -worldSpace 5.1 3 0;
+rotate -relative 0 30 90;
+scale -worldSpace 1 1 0.85;
+
+polyCylinder -radius 6 -height 0.2 -subdivisionsX 6 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -worldSpace -5.1 3 0;
+rotate -relative 0 30 90;
+scale -worldSpace 1 1 0.85;
+
+//Struts
+//I am aware that putting an object inside another object isn't necessarily the best move, but ima just do this to make my script and object more solid
+polyCone -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -worldSpace 3.75 3 0;
+rotate -relative 0 0 -90;  
+
+polyCone -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -worldSpace -3.75 3 0;
+rotate -relative 0 0 90;  
+
+//guns
+//same story as struts
+polyCylinder -radius 0.1 -height 2 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -worldSpace 0.735 1.25 2.5;
+rotate -relative 90 0 0;
+
+polyCylinder -radius 0.1 -height 2 -subdivisionsX 15 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -worldSpace -0.735 1.25 2.5;
+rotate -relative 90 0 0;
