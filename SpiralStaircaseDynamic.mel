@@ -1,0 +1,28 @@
+// Create first stair
+proc GenerateStair(float $stairDepth, float $stairWidth, float $stairHeight, float $pivot)
+{
+    polyCube -depth $stairDepth -width $stairWidth -height $stairHeight -sx 1 -sy 1 -sz 1 -ax 0 1 0 -createUVs 4 -ch 1;
+    xform -objectSpace -relative -translation 0 ($stairHeight/2) 0;
+}
+
+// Create the following stairs based on the position of the previous stairs
+proc NextStair(float $pivot, float $stepVertical, float $stepRotate)
+{
+    duplicate -rr;
+    xform -relative -objectSpace -translation $pivot $stepVertical 0;
+    xform -relative -objectSpace -rotation 0 $stepRotate 0;
+}
+
+// function generating the whole staircase
+proc GenerateStairCase(int $stairNum, float $stairHeight, float $stairWidth, float $stairDepth, float $pivot, float $stepVertical, float $stepRotate)
+{
+    GenerateStair($stairDepth, $stairWidth, $stairHeight, $pivot);
+
+    for ($i = 1; $i < $stairNum; $i++)
+    {
+        NextStair($pivot, $stepVertical, $stepRotate);
+    }
+}
+
+// Call the procedure
+GenerateStairCase(20, 0.2, 0.6, 1, 1, 0.2, 35);
