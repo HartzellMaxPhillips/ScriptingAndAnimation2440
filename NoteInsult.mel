@@ -1,0 +1,8 @@
+proc insultGenerator(int $ages[]) {
+    string $insultResult;
+    int $ageResult = age($ages);
+    $insultResult = "You are " + $ageResult + " years old. ";
+
+    string $insultResult = insults($ageResult);
+    print $insultResult;
+}
