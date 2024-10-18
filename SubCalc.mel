@@ -6,6 +6,7 @@ proc float Addition(float $input[]){
     }
     return $total;
 }
+//The comments below each function were used for testing
 //float $Aresult = Addition({1, 3, 17});
 //print("The total sum is: " + $Aresult + "\n");
 

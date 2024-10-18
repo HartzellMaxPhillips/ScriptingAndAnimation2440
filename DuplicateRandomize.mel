@@ -1,0 +1,83 @@
+// Main function to duplicate and randomize objects
+global proc duplicateAndRandomize(int $numDuplicates, float $minX, float $maxX, float $minY, float $maxY, float $minZ, float $maxZ) {
+
+    string $selected[] = `ls -sl`;
+    string $temp;
+
+    if (size($selected) == 0) {
+        error "No objects selected!";
+    }
+
+    // Loop through the number of duplicates
+    for ($i = 0; $i < $numDuplicates; $i++) {
+        for ($j = 0; $j < size($selected); $j++) {
+
+            $temp = $selected[$j];
+            string $newObj[] = `duplicate $temp`; // Ensure the duplicated object is stored
+            float $randX = rand($minX, $maxX);
+            float $randY = rand($minY, $maxY);
+            float $randZ = rand($minZ, $maxZ);
+
+            // Apply the random transformation to the new object
+            xform -worldSpace -translation $randX $randY $randZ $newObj[0];
+        }
+    }
+}
+
+// UI creation function
+global proc createDuplicateUI() {
+    if (`window -exists duplicateWindow`) {
+        deleteUI duplicateWindow;
+    }
+
+    window -title "Duplicate and Randomize Tool" -widthHeight 300 200 duplicateWindow;
+    columnLayout;
+
+    // Field for number of duplicates
+    text -label "Number of Duplicates:";
+    intField -minValue 1 -value 5 numDuplicatesField;
+
+    // Fields for X axis min and max
+    text -label "Min X:";
+    floatField minXField;
+    text -label "Max X:";
+    floatField maxXField;
+
+    // Fields for Y axis min and max
+    text -label "Min Y:";
+    floatField minYField;
+    text -label "Max Y:";
+    floatField maxYField;
+
+    // Fields for Z axis min and max
+    text -label "Min Z:";
+    floatField minZField;
+    text -label "Max Z:";
+    floatField maxZField;
+
+    // Button to execute duplication and randomization
+    button -label "Duplicate and Randomize" -command "runDuplicateAndRandomize()";
+
+    showWindow duplicateWindow;
+}
+
+// Function that gathers UI input and runs the duplicateAndRandomize function
+global proc runDuplicateAndRandomize() {
+    int $numDuplicates = `intField -q -value numDuplicatesField`;
+
+    float $minX = `floatField -q -value minXField`;
+    float $maxX = `floatField -q -value maxXField`;
+
+    float $minY = `floatField -q -value minYField`;
+    float $maxY = `floatField -q -value maxYField`;
+
+    float $minZ = `floatField -q -value minZField`;
+    float $maxZ = `floatField -q -value maxZField`;
+
+    // Call the main function with the gathered values
+    duplicateAndRandomize($numDuplicates, $minX, $maxX, $minY, $maxY, $minZ, $maxZ);
+}
+
+// Call the UI to start
+createDuplicateUI();
+
