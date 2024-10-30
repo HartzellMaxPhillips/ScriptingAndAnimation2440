@@ -21,6 +21,7 @@ polySphere -radius 1 -subdivisionsX 15 -subdivisionsY 15 -axis 0 3 0 -createUVs 
 move -relative 0.325 11.8 1.1;
 scale -relative 0.1 0.1 0.03;
 rotate -relative -objectSpace -forceOrderXYZ -25 13 0;
+
 //I could just do the same code over again, but wanted to learn something new and easier.  Besides duplicate could come in handy
 //also going to note that this made less code overall
 duplicate -rr; 
